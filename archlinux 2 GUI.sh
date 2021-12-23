@@ -35,8 +35,8 @@ arch-chroot /mnt /bin/bash -c "yes | pacman -S vim nano "
 arch-chroot /mnt /bin/bash -c "yes | pacman -S networkmanager "
 arch-chroot /mnt /bin/bash -c "yes | systemctl enable NetworkManager "
 arch-chroot /mnt /bin/bash -c "yes | pacman -S grub "
-echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
-echo 'LANG="us_US.UTF-8"' > /etc/locale.conf
+arch-chroot /mnt /bin/bash -c "en_US.UTF-8 UTF-8" > /etc/locale.gen
+arch-chroot /mnt /bin/bash -c 'LANG="us_US.UTF-8"' > /etc/locale.conf
 arch-chroot /mnt /bin/bash -c "mkinitcpio -P"
 echo "root:passwd_" | arch-chroot /mnt chpasswd 
 arch-chroot /mnt /bin/bash -c "grub-install /dev/sda "
